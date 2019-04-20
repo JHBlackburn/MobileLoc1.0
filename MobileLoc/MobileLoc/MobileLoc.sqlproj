@@ -75,5 +75,6 @@
     <Build Include="Schema\people.sql" />
     <Build Include="Tables\people\PersonContact.sql" />
     <Build Include="Tables\people\Person.sql" />
+    <Build Include="Tables\inquiry\JobLocation.sql" />
   </ItemGroup>
 </Project>
