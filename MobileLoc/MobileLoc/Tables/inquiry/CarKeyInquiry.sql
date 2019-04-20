@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [Inquiry].[CarKeyInquiry]
 (
-	CarKeyInquiryId					INT				NOT NULL Identity(1,1),
+	CarKeyInquiryId					INT				NOT NULL	IDENTITY(1,1),
 	CarMakeId						INT				NOT NULL,
 	CarModelId						INT				NOT NULL,
 	CarYearId						INT				NOT NULL,

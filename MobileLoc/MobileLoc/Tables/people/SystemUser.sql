@@ -1,6 +1,6 @@
 ﻿CREATE TABLE people.SystemUser
 (
-	SystemUserId			INT				NOT NULL	Identity(1,1),
+	SystemUserId			INT				NOT NULL	IDENTITY(1,1),
 	SystemUserName			VARCHAR(1000)	NOT NULL,
 	SystemUserType			VARCHAR(100)	NOT NULL,
 	SystemUserParentId		INT				NOT NULL	DEFAULT(0),

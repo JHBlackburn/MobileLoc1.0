@@ -71,7 +71,9 @@
     <Build Include="Tables\lookup\Car.sql" />
     <Build Include="Tables\inquiry\CarKeyInquiry.sql" />
     <Build Include="Schema\inquiry.sql" />
-    <Build Include="Tables\people\SystemUser" />
+    <Build Include="Tables\people\SystemUser.sql" />
     <Build Include="Schema\people.sql" />
+    <Build Include="Tables\people\PersonContact.sql" />
+    <Build Include="Tables\people\Person.sql" />
   </ItemGroup>
 </Project>
