@@ -20,7 +20,7 @@
 		CONSTRAINT PC_inquiry_JobLocation PRIMARY KEY CLUSTERED (JobLocationId asc)
 			WITH (DATA_COMPRESSION = PAGE),
 
-		CONSTRAINT FK_inquiry_JobLocation_inquiry_CarKeyInquiry_CarKeyInquiryId  FOREIGN KEY (CarKeyInquiryId ) REFERENCES inquiry.CarKeyInquiry (CarKeyInquiryId),
+		CONSTRAINT FK_inquiry_JobLocation_inquiry_CarKeyInquiry_CarKeyInquiryId  FOREIGN KEY (CarKeyInquiryId) REFERENCES inquiry.CarKeyInquiry (CarKeyInquiryId),
 		CONSTRAINT FK_inquiry_JobLocation_people_SystemUser_InsertBy  FOREIGN KEY (InsertBy) REFERENCES people.SystemUser (SystemUserId),
 		CONSTRAINT FK_inquiry_JobLocation_people_SystemUser_UpdateBy  FOREIGN KEY (UpdateBy) REFERENCES people.SystemUser (SystemUserId),
 )
