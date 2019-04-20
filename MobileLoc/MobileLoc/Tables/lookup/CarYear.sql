@@ -1,0 +1,13 @@
+﻿CREATE TABLE [lookup].[CarYear]
+(
+	CarYearId		INT				NOT NULL	IDENTITY(1,1),
+	CarYear			VARCHAR(10)		NOT NULL,
+	IsActive		BIT				NOT NULL	DEFAULT(1),
+
+	CONSTRAINT PC_lookup_CarYear PRIMARY KEY CLUSTERED (CarYearId asc)
+		WITH (DATA_COMPRESSION = PAGE),
+
+	CONSTRAINT UX_lookup_CarYear_CarYear UNIQUE NONCLUSTERED (CarYear)
+
+);
+GO
