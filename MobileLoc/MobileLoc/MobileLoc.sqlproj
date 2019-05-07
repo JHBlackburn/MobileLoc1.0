@@ -62,6 +62,7 @@
     <Folder Include="Tables\lookup" />
     <Folder Include="Tables\inquiry" />
     <Folder Include="Tables\people" />
+    <Folder Include="Tables\pricing" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema\lookup.sql" />
@@ -76,5 +77,7 @@
     <Build Include="Tables\people\PersonContact.sql" />
     <Build Include="Tables\people\Person.sql" />
     <Build Include="Tables\inquiry\JobLocation.sql" />
+    <Build Include="Schema\pricing.sql" />
+    <Build Include="Tables\pricing\ServiceCall.sql" />
   </ItemGroup>
 </Project>
