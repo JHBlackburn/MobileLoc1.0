@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[IlcoCarTruckGuide]
+(
+	[IlcoCarTruckGuideId] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	Make VARCHAR(100) NULL,
+	Model VARCHAR(100) NULL,
+	YearStart VARCHAR(5) NULL,
+	YearEnd VARCHAR(5) NULL,
+	KeyType VARCHAR(100) NULL,
+	KeyBlank VARCHAR(100) NULL,
+	Notes VARCHAR(500) NULL,
+
+)
