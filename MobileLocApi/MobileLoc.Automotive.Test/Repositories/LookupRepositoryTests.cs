@@ -20,21 +20,18 @@ namespace MobileLoc.Automotive.Test.Repositories
                 {
                     CarMakeId = 1,
                     CarMakeName = "Ford",
+                    IsActive = true,
                 },
                 new CarMake
                 {
                     CarMakeId = 2,
                     CarMakeName = "Chevrolet",
-                },
-                new CarMake
-                {
-                    CarMakeId = 3,
-                    CarMakeName = "BMW",
+                    IsActive = true,
                 },
             };
 
             //act
-            var results = lookupRepo.GetCarMakesAsync();
+            var results = await lookupRepo.GetCarMakesAsync();
 
             //assert
             results.Should().BeEquivalentTo(expectedMakes);

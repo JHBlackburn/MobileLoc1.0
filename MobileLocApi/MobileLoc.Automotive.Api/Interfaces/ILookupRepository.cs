@@ -1,9 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using MobileLoc.Automotive.Api.Models.SqlServer;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MobileLoc.Automotive.Api.Interfaces
 {
-    public interface ILookupRepository 
+    public interface ILookupRepository
     {
-        Task GetCarMakesAsync();
+        Task<IEnumerable<CarMake>> GetCarMakesAsync();
     }
 }

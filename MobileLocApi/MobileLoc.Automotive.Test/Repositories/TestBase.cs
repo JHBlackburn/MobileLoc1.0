@@ -34,19 +34,22 @@ namespace MobileLoc.Automotive.Test.Repositories
                 {
                     CarMakeId = 1,
                     CarMakeName = "Ford",
+                    IsActive = true,
                 },
                 new CarMake
                 {
                     CarMakeId = 2,
                     CarMakeName = "Chevrolet",
+                    IsActive = true,
                 },
                 new CarMake
                 {
                     CarMakeId = 3,
                     CarMakeName = "BMW",
+                    IsActive = false,
                 },
             };
-            TestDbContext.Add(carMakes);
+            TestDbContext.CarMake.AddRange(carMakes);
         }
     }
 }

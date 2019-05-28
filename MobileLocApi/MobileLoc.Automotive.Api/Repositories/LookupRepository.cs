@@ -1,6 +1,7 @@
 ﻿using MobileLoc.Automotive.Api.Interfaces;
 using MobileLoc.Automotive.Api.Models.SqlServer;
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MobileLoc.Automotive.Api.Repositories
@@ -14,9 +15,9 @@ namespace MobileLoc.Automotive.Api.Repositories
             _mobileLocContext = mobileLocContext;
         }
 
-        public Task GetCarMakesAsync()
+        public async Task<IEnumerable<CarMake>> GetCarMakesAsync()
         {
-            throw new NotImplementedException();
+            return _mobileLocContext.CarMake.Where(m => m.IsActive == true);
         }
     }
 }
