@@ -5,6 +5,7 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <UserSecretsId>355959c9-f89c-4065-8edb-b043c2068363</UserSecretsId>
+    <StartupObject>MobileLoc.Automotive.Api.Program</StartupObject>
   </PropertyGroup>
 
 
@@ -12,6 +13,12 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.2105168" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\MobileLoc.Automotive.Domain\MobileLoc.Automotive.Domain.csproj" />
   </ItemGroup>
 
 </Project>

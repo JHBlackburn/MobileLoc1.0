@@ -12,4 +12,16 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MobileLoc.Automotive.Api\MobileLoc.Automotive.Api.csproj" />
+    <ProjectReference Include="..\MobileLoc.Automotive.Domain\MobileLoc.Automotive.Domain.csproj" />
+    <ProjectReference Include="..\MobileLoc.Automotive.Persistence\MobileLoc.Automotive.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Api\" />
+    <Folder Include="Domain\" />
+    <Folder Include="Persistence\" />
+  </ItemGroup>
+
 </Project>
