@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileLoc.Automotive.Persis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileLoc.Automotive.Test", "MobileLoc.Automotive.Test\MobileLoc.Automotive.Test.csproj", "{BA435E0F-35E7-4160-AF5D-FFA754B36922}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{28D269DE-5416-4A5A-8269-6A4322C28AA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{9DF44A1A-6717-4142-8B02-3F75C4C3E86F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CA8C8D7B-07A6-44EB-9015-87CFDDE3860F} = {28D269DE-5416-4A5A-8269-6A4322C28AA8}
+		{4ADE88A5-7581-4BD3-AF25-A624437CD6F1} = {28D269DE-5416-4A5A-8269-6A4322C28AA8}
+		{17E61FAF-B98D-411E-822A-9EBA31F94D27} = {28D269DE-5416-4A5A-8269-6A4322C28AA8}
+		{BA435E0F-35E7-4160-AF5D-FFA754B36922} = {9DF44A1A-6717-4142-8B02-3F75C4C3E86F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2D11DB4-9E5D-4BFB-98BB-ACEB498EE3F1}

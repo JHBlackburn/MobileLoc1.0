@@ -5,8 +5,8 @@ namespace MobileLoc.Automotive.Api.Controllers
 {
     public class CarController : Controller
     {
-        [Route("automotive/make")]
-        public async Task<IActionResult> GetCarMakes()
+        [Route("automotive/makes")]
+        public async Task<IActionResult> GetMakes()
         {
             return Ok();
         }
