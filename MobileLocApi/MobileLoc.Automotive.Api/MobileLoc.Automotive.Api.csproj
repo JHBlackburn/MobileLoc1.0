@@ -4,9 +4,9 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <UserSecretsId>9bb0c147-1e5e-42a2-b1da-a2abbf4addcc</UserSecretsId>
-    <StartupObject>MobileLoc.Automotive.Api.Program</StartupObject>
+    <UserSecretsId>355959c9-f89c-4065-8edb-b043c2068363</UserSecretsId>
   </PropertyGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
