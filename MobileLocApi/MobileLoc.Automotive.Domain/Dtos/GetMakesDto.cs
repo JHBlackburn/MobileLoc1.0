@@ -1,6 +1,6 @@
-﻿namespace MobileLoc.Automotive.Api.Models
+﻿namespace MobileLoc.Automotive.Domain.Dtos
 {
-    public class GetMakeModel
+    public class GetMakesDto
     {
         public int CarMakeId { get; set; }
         public string CarMakeName { get; set; }
