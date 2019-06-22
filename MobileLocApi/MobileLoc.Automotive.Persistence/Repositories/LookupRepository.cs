@@ -16,7 +16,7 @@ namespace MobileLoc.Automotive.Persistence.Repositories
 
         public async Task<IEnumerable<GetMakesDto>> GetActiveMakesAsync()
         {
-            return null;
+            return new List<GetMakesDto>();
         }
     }
 }
