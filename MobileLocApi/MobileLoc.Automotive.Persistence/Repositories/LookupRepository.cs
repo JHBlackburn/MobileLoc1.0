@@ -1,6 +1,7 @@
 ﻿using MobileLoc.Automotive.Domain.Dtos;
 using MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MobileLoc.Automotive.Persistence.Repositories
@@ -16,7 +17,14 @@ namespace MobileLoc.Automotive.Persistence.Repositories
 
         public async Task<IEnumerable<GetMakesDto>> GetActiveMakesAsync()
         {
-            return new List<GetMakesDto>();
+            var dbResults = _mobileLocContext.CarMake.Where(make => make.IsActive.Value);
+
+            return dbResults.Select(m => new GetMakesDto
+            {
+                CarMakeId = m.CarMakeId,
+                CarMakeName = m.CarMakeName,
+                IsActive = m.IsActive,
+            });
         }
     }
 }

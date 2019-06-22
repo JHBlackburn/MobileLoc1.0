@@ -1,6 +1,7 @@
-﻿using MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer;
+﻿using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
+using MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer;
 using MobileLoc.Automotive.Test.TestBaseUtilities;
-using TestSupport.EfHelpers;
 
 namespace MobileLoc.Automotive.Test.Persistence
 {
@@ -17,10 +18,17 @@ namespace MobileLoc.Automotive.Test.Persistence
 
         private MobilelocContext CreateInMemoryTestDb()
         {
-            var options = SqliteInMemory
-                .CreateOptions<MobilelocContext>();
+            var connection = new SqliteConnection("DataSource=:memory:");
+            connection.Open();
 
-            return new MobilelocContext(options);
+            var options = new DbContextOptionsBuilder<MobilelocContext>()
+                .UseSqlite(connection)
+                .Options;
+
+            var context = new MobilelocContext(options);
+            context.Database.EnsureCreated();
+
+            return context;
         }
     }
 }

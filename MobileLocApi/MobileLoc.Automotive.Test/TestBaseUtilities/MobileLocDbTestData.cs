@@ -9,7 +9,7 @@ namespace MobileLoc.Automotive.Test.TestBaseUtilities
 
         public MobileLocDbTestData(MobilelocContext mobileLocContext)
         {
-            mobileLocContext = _mobileLocContext;
+            _mobileLocContext = mobileLocContext;
         }
 
         public void Initialize()
@@ -20,9 +20,7 @@ namespace MobileLoc.Automotive.Test.TestBaseUtilities
 
         private void InitializeCarMakes()
         {
-            _mobileLocContext.CarMake.AddRange(
-
-                new List<CarMake>
+            var data = new List<CarMake>
                 {
                     new CarMake
                     {
@@ -54,7 +52,9 @@ namespace MobileLoc.Automotive.Test.TestBaseUtilities
                         CarMakeName = "DrainsOrDropsGreaseEverywhere",
                         IsActive = false,
                     },
-                });
+                };
+
+            _mobileLocContext.CarMake.AddRange(data);
         }
     }
 }
