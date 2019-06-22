@@ -26,11 +26,13 @@ namespace MobileLoc.Automotive.Test.Domain.Queries
                 {
                     CarMakeId = 1,
                     CarMakeName = "Ford",
+                    IsActive = true,
                 },
                 new GetMakesDto
                 {
                     CarMakeId = 2,
                     CarMakeName = "Chevrolet",
+                    IsActive = true
                 },
             };
             lookupRepo.Setup(x => x.GetActiveMakesAsync()).ReturnsAsync(expectedResults);

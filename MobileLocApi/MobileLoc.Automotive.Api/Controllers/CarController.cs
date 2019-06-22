@@ -13,8 +13,8 @@ namespace MobileLoc.Automotive.Api.Controllers
         public async Task<IActionResult> GetMakes()
         {
             var getMakesRequest = new GetMakes();
-            await mediator.Send(getMakesRequest);
-            return Ok("Hello World");
+            var results = await mediator.Send(getMakesRequest);
+            return Ok(results);
         }
     }
 }
