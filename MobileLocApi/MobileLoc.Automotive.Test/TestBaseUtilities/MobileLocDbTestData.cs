@@ -46,13 +46,13 @@ namespace MobileLoc.Automotive.Test.TestBaseUtilities
                     {
                         CarMakeId = 4,
                         CarMakeName = "TooOftenYankeesOverpriceThisAuto",
-                        IsActive = true,
+                        IsActive = false,
                     },
                     new CarMake
                     {
                         CarMakeId = 5,
                         CarMakeName = "DrainsOrDropsGreaseEverywhere",
-                        IsActive = true,
+                        IsActive = false,
                     },
                 });
         }
