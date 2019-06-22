@@ -31,12 +31,12 @@ namespace MobileLoc.Automotive.Api
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddMediatR(typeof(Startup));
 
             var connection = @"Server=localhost;Database=MobileLoc;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<MobilelocContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<IRequestHandler<GetMakes, IEnumerable<GetMakesDto>>, GetMakesHandler>();
+            services.AddMediatR(typeof(Startup).Assembly, typeof(GetMakes).Assembly);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
