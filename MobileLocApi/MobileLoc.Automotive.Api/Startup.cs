@@ -38,6 +38,7 @@ namespace MobileLoc.Automotive.Api
             services.AddDbContext<MobilelocContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<IRequestHandler<GetMakes, IEnumerable<GetMakesDto>>, GetMakesHandler>();
+            services.AddScoped<IRequestHandler<GetModels, IEnumerable<GetModelsDto>>, GetModelsHandler>();
             services.AddMediatR(typeof(Startup).Assembly);
 
             services.AddScoped<ILookupRepository, LookupRepository>();

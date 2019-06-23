@@ -6,11 +6,5 @@ namespace MobileLoc.Automotive.Domain.Queries
 {
     public class GetMakes : IRequest<IEnumerable<GetMakesDto>>
     {
-        private readonly string stopHere;
-
-        public GetMakes()
-        {
-            stopHere = "hello World";
-        }
     }
 }
