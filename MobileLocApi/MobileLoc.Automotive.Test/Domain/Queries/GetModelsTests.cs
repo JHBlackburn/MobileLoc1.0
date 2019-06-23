@@ -3,6 +3,7 @@ using MobileLoc.Automotive.Domain.Dtos;
 using MobileLoc.Automotive.Domain.Interfaces;
 using MobileLoc.Automotive.Domain.Queries;
 using Moq;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -37,6 +38,16 @@ namespace MobileLoc.Automotive.Test.Domain.Queries
 
             //assert
             results.Should().BeEquivalentTo(expectedResults);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(-1)]
+        [InlineData(null)]
+        public async Task Constructor_GivenNoMakeId_ThrowsArgumentException(int initializedMakeId)
+        {
+            // act and assert
+            var exception = Assert.Throws<ArgumentException>(() => new GetModels(initializedMakeId));
         }
     }
 }
