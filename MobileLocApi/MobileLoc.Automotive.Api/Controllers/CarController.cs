@@ -21,5 +21,13 @@ namespace MobileLoc.Automotive.Api.Controllers
             var results = await _mediator.Send(getMakesRequest);
             return Ok(results);
         }
+
+        [HttpGet("automotive/make/{makeId}/models")]
+        public async Task<IActionResult> GetModels(int makeId)
+        {
+            var getModelsRequest = new GetModels(makeId);
+            var results = await _mediator.Send(getModelsRequest);
+            return Ok(results);
+        }
     }
 }

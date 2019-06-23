@@ -8,7 +8,7 @@
 		CONSTRAINT PC_lookup_CarModel PRIMARY KEY CLUSTERED (CarModelId asc)
 		WITH (DATA_COMPRESSION = PAGE),
 
-		CONSTRAINT UX_lookup_CarModel_CarModelName UNIQUE NONCLUSTERED (CarModelName),
+		CONSTRAINT UX_lookup_CarModel_CarModelName UNIQUE NONCLUSTERED (CarModelName, CarMakeId),
 
 		CONSTRAINT FK_lookup_CarModel_lookup_CarMake_CarMakeId  FOREIGN KEY (CarMakeId) REFERENCES lookup.CarMake (CarMakeId),
 
