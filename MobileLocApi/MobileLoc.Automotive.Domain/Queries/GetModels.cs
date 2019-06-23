@@ -6,11 +6,11 @@ namespace MobileLoc.Automotive.Domain.Queries
 {
     public class GetModels : IRequest<IEnumerable<GetModelsDto>>
     {
-        private readonly int _makeId;
+        public int MakeId { get; }
 
         public GetModels(int makeId)
         {
-            _makeId = makeId;
+            MakeId = makeId;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace MobileLoc.Automotive.Test.Domain.Queries
             var makeId = 45;
             var request = new GetModels(makeId);
             var lookupRepo = new Mock<ILookupRepository>();
-            var handler = new GetModelsHandler();
+            var handler = new GetModelsHandler(lookupRepo.Object);
             var expectedResults = new List<GetModelsDto>
             {
                 new GetModelsDto
