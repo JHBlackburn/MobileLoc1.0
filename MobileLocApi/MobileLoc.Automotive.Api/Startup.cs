@@ -7,7 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MobileLoc.Automotive.Domain.Dtos;
+using MobileLoc.Automotive.Domain.Interfaces;
 using MobileLoc.Automotive.Domain.Queries;
+using MobileLoc.Automotive.Persistence.Repositories;
 using MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer;
 using System.Collections.Generic;
 
@@ -36,7 +38,9 @@ namespace MobileLoc.Automotive.Api
             services.AddDbContext<MobilelocContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<IRequestHandler<GetMakes, IEnumerable<GetMakesDto>>, GetMakesHandler>();
-            services.AddMediatR(typeof(Startup).Assembly, typeof(GetMakes).Assembly);
+            services.AddMediatR(typeof(Startup).Assembly);
+
+            services.AddScoped<ILookupRepository, LookupRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

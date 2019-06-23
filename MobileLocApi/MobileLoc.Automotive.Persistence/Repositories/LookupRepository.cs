@@ -1,4 +1,5 @@
 ﻿using MobileLoc.Automotive.Domain.Dtos;
+using MobileLoc.Automotive.Domain.Interfaces;
 using MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MobileLoc.Automotive.Persistence.Repositories
 {
-    public class LookupRepository
+    public class LookupRepository : ILookupRepository
     {
         private MobilelocContext _mobileLocContext { get; set; }
 
