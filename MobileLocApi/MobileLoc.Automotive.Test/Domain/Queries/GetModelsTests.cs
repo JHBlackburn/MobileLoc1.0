@@ -43,7 +43,6 @@ namespace MobileLoc.Automotive.Test.Domain.Queries
         [Theory]
         [InlineData(0)]
         [InlineData(-1)]
-        [InlineData(null)]
         public async Task Constructor_GivenNoMakeId_ThrowsArgumentException(int initializedMakeId)
         {
             // act and assert
