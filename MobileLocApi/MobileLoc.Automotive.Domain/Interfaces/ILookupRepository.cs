@@ -7,5 +7,7 @@ namespace MobileLoc.Automotive.Domain.Interfaces
     public interface ILookupRepository
     {
         Task<IEnumerable<GetMakesDto>> GetActiveMakesAsync();
+
+        Task<IEnumerable<GetModelsDto>> GetActiveModelsByMakeAsync(int carMakeId);
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer
 {
@@ -16,6 +14,7 @@ namespace MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer
         }
 
         public virtual DbSet<CarMake> CarMake { get; set; }
+        public virtual DbSet<CarModel> CarModel { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -46,6 +45,30 @@ namespace MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer
                 entity.Property(e => e.IsActive)
                     .IsRequired()
                     .HasDefaultValueSql("((1))");
+            });
+
+            modelBuilder.Entity<CarModel>(entity =>
+            {
+                entity.ToTable("CarModel", "lookup");
+
+                entity.HasIndex(e => e.CarModelName)
+                    .HasName("UX_lookup_CarModel_CarModelName")
+                    .IsUnique();
+
+                entity.Property(e => e.CarModelName)
+                    .IsRequired()
+                    .HasMaxLength(1000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IsActive)
+                    .IsRequired()
+                    .HasDefaultValueSql("((1))");
+
+                entity.HasOne(d => d.CarMake)
+                    .WithMany(p => p.CarModel)
+                    .HasForeignKey(d => d.CarMakeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_lookup_CarModel_lookup_CarMake_CarMakeId");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -42,5 +42,37 @@ namespace MobileLoc.Automotive.Test.Persistence.Repositories
             // assert
             results.Should().BeEquivalentTo(expectedResults);
         }
+
+        [Fact]
+        public async Task GetActiveModelsByMakeAsync_GivenMake_ReturnsOnlyActiveModelsFromContext()
+        {
+            // arrange
+            var lookupRepo = new LookupRepository(TestMobileLocContext);
+            var carMakeId = 1;
+
+            var expectedResults = new List<GetModelsDto>
+            {
+                new GetModelsDto
+                    {
+                        CarModelId = 1,
+                        CarModelName = "Mustang",
+                        CarMakeId = 1,
+                        IsActive = true,
+                    },
+                    new GetModelsDto
+                    {
+                        CarModelId = 3,
+                        CarModelName = "Transit Van",
+                        CarMakeId = 1,
+                        IsActive = true,
+                    },
+            };
+
+            // act
+            var results = await lookupRepo.GetActiveModelsByMakeAsync(carMakeId);
+
+            // assert
+            results.Should().BeEquivalentTo(expectedResults);
+        }
     }
 }

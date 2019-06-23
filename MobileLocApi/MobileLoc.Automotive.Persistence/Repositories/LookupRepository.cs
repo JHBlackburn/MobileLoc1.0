@@ -27,5 +27,18 @@ namespace MobileLoc.Automotive.Persistence.Repositories
                 IsActive = m.IsActive,
             });
         }
+
+        public async Task<IEnumerable<GetModelsDto>> GetActiveModelsByMakeAsync(int carMakeId)
+        {
+            var dbResults = _mobileLocContext.CarModel.Where(model => model.IsActive.Value && model.CarMakeId == carMakeId);
+
+            return dbResults.Select(m => new GetModelsDto
+            {
+                CarModelId = m.CarModelId,
+                CarModelName = m.CarModelName,
+                CarMakeId = m.CarMakeId,
+                IsActive = m.IsActive,
+            });
+        }
     }
 }
