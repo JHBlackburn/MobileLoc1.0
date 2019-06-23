@@ -9,5 +9,7 @@ namespace MobileLoc.Automotive.Domain.Interfaces
         Task<IEnumerable<GetMakesDto>> GetActiveMakesAsync();
 
         Task<IEnumerable<GetModelsDto>> GetActiveModelsByMakeAsync(int carMakeId);
+
+        Task<IEnumerable<GetModelsDto>> GetActiveYearsByModelAsync(int carModelId);
     }
 }

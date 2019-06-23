@@ -15,6 +15,7 @@ namespace MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer
 
         public virtual DbSet<CarMake> CarMake { get; set; }
         public virtual DbSet<CarModel> CarModel { get; set; }
+        public virtual DbSet<CarYear> CarYear { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -51,7 +52,7 @@ namespace MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer
             {
                 entity.ToTable("CarModel", "lookup");
 
-                entity.HasIndex(e => e.CarModelName)
+                entity.HasIndex(e => new { e.CarModelName, e.CarMakeId })
                     .HasName("UX_lookup_CarModel_CarModelName")
                     .IsUnique();
 
@@ -69,6 +70,25 @@ namespace MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer
                     .HasForeignKey(d => d.CarMakeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_lookup_CarModel_lookup_CarMake_CarMakeId");
+            });
+
+            modelBuilder.Entity<CarYear>(entity =>
+            {
+                entity.ToTable("CarYear", "lookup");
+
+                entity.HasIndex(e => e.CarYear1)
+                    .HasName("UX_lookup_CarYear_CarYear")
+                    .IsUnique();
+
+                entity.Property(e => e.CarYear1)
+                    .IsRequired()
+                    .HasColumnName("CarYear")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IsActive)
+                    .IsRequired()
+                    .HasDefaultValueSql("((1))");
             });
 
             OnModelCreatingPartial(modelBuilder);

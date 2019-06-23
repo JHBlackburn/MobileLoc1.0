@@ -40,5 +40,10 @@ namespace MobileLoc.Automotive.Persistence.Repositories
                 IsActive = m.IsActive,
             });
         }
+
+        public async Task<IEnumerable<GetModelsDto>> GetActiveYearsByModelAsync(int carModelId)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

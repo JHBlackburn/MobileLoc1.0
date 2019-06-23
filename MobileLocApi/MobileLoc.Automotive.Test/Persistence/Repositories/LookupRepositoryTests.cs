@@ -74,5 +74,41 @@ namespace MobileLoc.Automotive.Test.Persistence.Repositories
             // assert
             results.Should().BeEquivalentTo(expectedResults);
         }
+
+        [Fact]
+        public async Task GetActiveYearsByModelAsync_GivenModel_ReturnsOnlyActiveYearsFromContext()
+        {
+            // arrange
+            var lookupRepo = new LookupRepository(TestMobileLocContext);
+            var carModelId = 19;
+
+            var expectedResults = new List<GetYearsDto>
+            {
+                new GetYearsDto
+                    {
+                        CarYearId = 1,
+                        CarYear = "1990",
+                        IsActive = true,
+                    },
+                new GetYearsDto
+                    {
+                        CarYearId = 2,
+                        CarYear = "1991",
+                        IsActive = true,
+                    },
+                new GetYearsDto
+                    {
+                        CarYearId = 3,
+                        CarYear = "1992",
+                        IsActive = true,
+                    },
+            };
+
+            // act
+            var results = await lookupRepo.GetActiveYearsByModelAsync(carModelId);
+
+            // assert
+            results.Should().BeEquivalentTo(expectedResults);
+        }
     }
 }
