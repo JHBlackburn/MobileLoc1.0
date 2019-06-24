@@ -1,4 +1,5 @@
 ﻿using MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer;
+using System;
 using System.Collections.Generic;
 
 namespace MobileLoc.Automotive.Test.TestBaseUtilities
@@ -16,6 +17,10 @@ namespace MobileLoc.Automotive.Test.TestBaseUtilities
         {
             InitializeCarMakes();
             InitializeCarModels();
+            InitializeCarYears();
+            InitializeSystemUsers();
+            InitializeCars();
+
             _mobileLocContext.SaveChanges();
         }
 
@@ -100,6 +105,100 @@ namespace MobileLoc.Automotive.Test.TestBaseUtilities
                 };
 
             _mobileLocContext.CarModel.AddRange(data);
+        }
+
+        private void InitializeCarYears()
+        {
+            var data = new List<CarYear>
+                {
+                    new CarYear
+                    {
+                        CarYearId = 1,
+                        CarYear1 = "1901",
+                        IsActive = true,
+                    },
+                    new CarYear
+                    {
+                        CarYearId = 2,
+                        CarYear1 = "1902",
+                        IsActive = true,
+                    },
+                    new CarYear
+                    {
+                        CarYearId = 3,
+                        CarYear1 = "1903",
+                        IsActive = true,
+                    },
+                    new CarYear
+                    {
+                        CarYearId = 4,
+                        CarYear1 = "1904",
+                        IsActive = true,
+                    },
+                    new CarYear
+                    {
+                        CarYearId = 5,
+                        CarYear1 = "1905",
+                        IsActive = true,
+                    },
+                };
+
+            _mobileLocContext.CarYear.AddRange(data);
+        }
+
+        private void InitializeSystemUsers()
+        {
+            var data = new List<SystemUser>
+                {
+                    new SystemUser
+                    {
+                        SystemUserId = 99,
+                        SystemUserParentId = 99,
+                        SystemUserName = "Test@Testington.com",
+                        SystemUserType = "Employee",
+                    }
+            };
+
+            _mobileLocContext.AddRange(data);
+        }
+
+        private void InitializeCars()
+        {
+            var data = new List<Car>
+                {
+                    new Car
+                    {
+                        CarMakeId = 1,
+                        CarModelId = 1,
+                        CarYearId = 1,
+                        InsertBy = 99,
+                        InsertDt = DateTime.Parse("1/1/1900"),
+                        UpdateBy = 99,
+                        UpdateDt = DateTime.Parse("1/1/1900"),
+                    },
+                    new Car
+                    {
+                        CarMakeId = 2,
+                        CarModelId = 2,
+                        CarYearId = 2,
+                        InsertBy = 99,
+                        InsertDt = DateTime.Parse("1/2/1900"),
+                        UpdateBy = 99,
+                        UpdateDt = DateTime.Parse("1/2/1900"),
+                    },
+                    new Car
+                    {
+                        CarMakeId = 3,
+                        CarModelId = 3,
+                        CarYearId = 3,
+                        InsertBy = 99,
+                        InsertDt = DateTime.Parse("1/3/1900"),
+                        UpdateBy = 99,
+                        UpdateDt = DateTime.Parse("1/3/1900"),
+                    },
+                };
+
+            _mobileLocContext.Car.AddRange(data);
         }
     }
 }

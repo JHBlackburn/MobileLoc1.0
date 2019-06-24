@@ -64,7 +64,6 @@
     <Folder Include="Tables\people" />
     <Folder Include="Tables\pricing" />
     <Folder Include="Tables\stage" />
-    <Folder Include="_Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema\lookup.sql" />
@@ -83,6 +82,5 @@
     <Build Include="Tables\pricing\ServiceCall.sql" />
     <Build Include="Schema\stage.sql" />
     <Build Include="Tables\stage\IlcoCarTruckGuide.sql" />
-    <Build Include="_Scripts\TestData_InsertCarModels.sql" />
   </ItemGroup>
 </Project>

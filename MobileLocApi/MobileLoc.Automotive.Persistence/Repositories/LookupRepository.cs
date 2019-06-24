@@ -1,4 +1,5 @@
-﻿using MobileLoc.Automotive.Domain.Dtos;
+﻿using Microsoft.EntityFrameworkCore;
+using MobileLoc.Automotive.Domain.Dtos;
 using MobileLoc.Automotive.Domain.Interfaces;
 using MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer;
 using System.Collections.Generic;
@@ -41,9 +42,21 @@ namespace MobileLoc.Automotive.Persistence.Repositories
             });
         }
 
-        public async Task<IEnumerable<GetModelsDto>> GetActiveYearsByModelAsync(int carModelId)
+        public async Task<IEnumerable<GetYearsDto>> GetActiveYearsByModelAsync(int carModelId)
         {
-            throw new System.NotImplementedException();
+            var dbResults = _mobileLocContext.Car
+                .Include(c => c.CarYear)
+                .Where(c => c.CarYear.IsActive.Value
+                    && c.IsActive.Value
+                    && c.CarModelId == carModelId);
+
+            return dbResults.Select(m => new GetYearsDto
+            {
+                CarYearId = m.CarYear.CarYearId,
+                CarYear = m.CarYear.CarYear1,
+                CarModelId = m.CarModelId,
+                IsActive = m.IsActive,
+            });
         }
     }
 }

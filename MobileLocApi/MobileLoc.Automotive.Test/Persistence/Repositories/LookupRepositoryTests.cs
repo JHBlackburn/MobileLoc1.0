@@ -80,26 +80,15 @@ namespace MobileLoc.Automotive.Test.Persistence.Repositories
         {
             // arrange
             var lookupRepo = new LookupRepository(TestMobileLocContext);
-            var carModelId = 19;
+            var carModelId = 1;
 
             var expectedResults = new List<GetYearsDto>
             {
                 new GetYearsDto
                     {
                         CarYearId = 1,
-                        CarYear = "1990",
-                        IsActive = true,
-                    },
-                new GetYearsDto
-                    {
-                        CarYearId = 2,
-                        CarYear = "1991",
-                        IsActive = true,
-                    },
-                new GetYearsDto
-                    {
-                        CarYearId = 3,
-                        CarYear = "1992",
+                        CarYear = "1901",
+                        CarModelId = 1,
                         IsActive = true,
                     },
             };

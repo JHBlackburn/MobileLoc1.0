@@ -7,6 +7,7 @@ namespace MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer
     {
         public CarMake()
         {
+            Car = new HashSet<Car>();
             CarModel = new HashSet<CarModel>();
         }
 
@@ -14,6 +15,7 @@ namespace MobileLoc.Automotive.Persistence.Repositories.Models.SqlServer
         public string CarMakeName { get; set; }
         public bool? IsActive { get; set; }
 
+        public virtual ICollection<Car> Car { get; set; }
         public virtual ICollection<CarModel> CarModel { get; set; }
     }
 }
