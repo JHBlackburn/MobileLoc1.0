@@ -29,5 +29,13 @@ namespace MobileLoc.Automotive.Api.Controllers
             var results = await _mediator.Send(getModelsRequest);
             return Ok(results);
         }
+
+        [HttpGet("automotive/model/{modelId}/years")]
+        public async Task<IActionResult> GetYears(int modelId)
+        {
+            var getYearsRequest = new GetYears(modelId);
+            var results = await _mediator.Send(getYearsRequest);
+            return Ok(results);
+        }
     }
 }

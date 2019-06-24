@@ -17,7 +17,7 @@
 
 		CONSTRAINT FK_lookup_Car_lookup_CarMake_CarMakeId  FOREIGN KEY (CarMakeId) REFERENCES lookup.CarMake (CarMakeId),
 		CONSTRAINT FK_lookup_Car_lookup_CarModel_CarModelId  FOREIGN KEY (CarModelId) REFERENCES lookup.CarModel (CarModelId),
-		CONSTRAINT FK_lookup_Car_lookup_CarMake_CarYearId  FOREIGN KEY (CarYearId) REFERENCES lookup.CarYear (CarYearId),
+		CONSTRAINT FK_lookup_Car_lookup_CarYear_CarYearId  FOREIGN KEY (CarYearId) REFERENCES lookup.CarYear (CarYearId),
 		CONSTRAINT FK_lookup_Car_people_SystemUser_InsertBy  FOREIGN KEY (InsertBy) REFERENCES people.SystemUser (SystemUserId),
 		CONSTRAINT FK_lookup_Car_people_SystemUser_UpdateBy  FOREIGN KEY (UpdateBy) REFERENCES people.SystemUser (SystemUserId),
 )

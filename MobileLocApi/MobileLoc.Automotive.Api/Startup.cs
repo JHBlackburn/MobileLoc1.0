@@ -39,6 +39,7 @@ namespace MobileLoc.Automotive.Api
 
             services.AddScoped<IRequestHandler<GetMakes, IEnumerable<GetMakesDto>>, GetMakesHandler>();
             services.AddScoped<IRequestHandler<GetModels, IEnumerable<GetModelsDto>>, GetModelsHandler>();
+            services.AddScoped<IRequestHandler<GetYears, IEnumerable<GetYearsDto>>, GetYearsHandler>();
             services.AddMediatR(typeof(Startup).Assembly);
 
             services.AddScoped<ILookupRepository, LookupRepository>();

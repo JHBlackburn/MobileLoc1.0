@@ -27,7 +27,7 @@ namespace MobileLoc.Automotive.Test.Domain.Queries
                 {
                     CarYearId = 1,
                     CarYear = "1901",
-                    CarModelId = 5,
+                    CarModelId = modelId,
                     IsActive = true,
                 },
             };
