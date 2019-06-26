@@ -1,14 +1,22 @@
 ﻿CREATE TABLE lookup.Car
 (
-	CarId						INT				NOT NULL	IDENTITY(1,1),
-	CarMakeId					INT				NOT NULL,
-	CarModelId					INT				NOT NULL,
-	CarYearId					INT				NOT NULL,
-	IsActive					BIT				NOT NULL	DEFAULT(1),
-	InsertDT					DATETIME		NOT NULL	DEFAULT(GETDATE()),
-	InsertBy					INT				NOT NULL	DEFAULT(0),
-	UpdateDT					DATETIME		NOT NULL	DEFAULT(GETDATE()),
-	UpdateBy					INT				NOT NULL	DEFAULT(0)
+	CarId								INT				NOT NULL	IDENTITY(1,1),
+	CarMakeId							INT				NOT NULL,
+	CarModelId							INT				NOT NULL,
+	CarYearId							INT				NOT NULL,
+	CarKeyPartNumber					VARCHAR(200)	NULL,
+	CarRemotePartNumber					VARCHAR(200)	NULL,
+	CarIntegratedKeyRemotePartNumber	VARCHAR(200)	NULL,
+	CarKeyPartNumberSource				VARCHAR(200)	NULL,
+	CarRemotePartNumberSource			VARCHAR(200)	NULL,
+	CarIntegratedKeyRemoteSource		VARCHAR(200)	NULL,
+	IsTransponderKey					BIT				NOT NULL	DEFAULT(1),
+	IsSidewinderKey						BIT				NOT NULL	DEFAULT(0),
+	IsActive							BIT				NOT NULL	DEFAULT(1),
+	InsertDT							DATETIME		NOT NULL	DEFAULT(GETDATE()),
+	InsertBy							INT				NOT NULL	DEFAULT(0),
+	UpdateDT							DATETIME		NOT NULL	DEFAULT(GETDATE()),
+	UpdateBy							INT				NOT NULL	DEFAULT(0)
 
 		CONSTRAINT PC_lookup_Car PRIMARY KEY CLUSTERED (CarId asc)
 		WITH (DATA_COMPRESSION = PAGE),
