@@ -1,0 +1,52 @@
+[
+  {
+    "carMakeId": 1,
+    "carMakeName": "Ford",
+    "isActive": true
+  },
+  {
+    "carMakeId": 2,
+    "carMakeName": "Chevrolet",
+    "isActive": true
+  },
+  {
+    "carMakeId": 3,
+    "carMakeName": "Chrysler",
+    "isActive": true
+  },
+  {
+    "carMakeId": 4,
+    "carMakeName": "Toyota",
+    "isActive": true
+  },
+  {
+    "carMakeId": 5,
+    "carMakeName": "Honda",
+    "isActive": true
+  },
+  {
+    "carMakeId": 6,
+    "carMakeName": "Nissan",
+    "isActive": true
+  },
+  {
+    "carMakeId": 7,
+    "carMakeName": "Hyundai",
+    "isActive": true
+  },
+  {
+    "carMakeId": 8,
+    "carMakeName": "Kia",
+    "isActive": true
+  },
+  {
+    "carMakeId": 9,
+    "carMakeName": "Mercedes-Benz",
+    "isActive": true
+  },
+  {
+    "carMakeId": 10,
+    "carMakeName": "Volkswagon",
+    "isActive": true
+  }
+]
