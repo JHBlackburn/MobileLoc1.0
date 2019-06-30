@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Dropdown from "./Components/Dropdown";
+import Home from "./Pages/Home";
 
 class App extends Component {
   constructor(props) {
@@ -11,9 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Dropdown />
-        <Dropdown />
-        <Dropdown />
+        <Home />
       </div>
     );
   }
