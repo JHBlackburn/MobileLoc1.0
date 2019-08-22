@@ -13,7 +13,7 @@ namespace MobileLoc.Automotive.Test.Persistence.Repositories
         {
             var dataScrapeRepo = new DataScrapeRepository();
 
-            dataScrapeRepo.SpreadsheetTest();
+            dataScrapeRepo.SpreadsheetRead();
         }
     }
 }
