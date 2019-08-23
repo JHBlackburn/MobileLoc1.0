@@ -24,11 +24,16 @@ namespace MobileLoc.Automotive.Persistence.Repositories
         public object[,] SpreadsheetRead()
         {
             // Create a workbook and get the first worksheet
-            SpreadsheetGear.IWorkbook workbook = SpreadsheetGear.Factory.GetWorkbook(@"C:\git\_DELETEME\MobileLoc1.0\MobileLocApi\Files\2019-auto-truck-key-blank-reference.xlsx");
+            SpreadsheetGear.IWorkbook oldWorkbook = SpreadsheetGear.Factory.GetWorkbook(@"C:\git\_DELETEME\MobileLoc1.0\MobileLocApi\Files\2019-auto-truck-key-blank-reference.xlsx");
             // Get a reference to the first worksheet.
-            SpreadsheetGear.IWorksheet worksheet = workbook.Worksheets["Page 3"];
+            string newWorkbookPath = @"C:\git\_DELETEME\MobileLoc1.0\MobileLocApi\Files\MyData.csv";
 
-            // Create a 10 row by 2 column array of values
+            oldWorkbook.SaveAs(newWorkbookPath, SpreadsheetGear.FileFormat.CSV);
+            IWorkbook newWorkbook = SpreadsheetGear.Factory.GetWorkbook(newWorkbookPath);
+            IWorksheet newWorksheet = newWorkbook.Worksheets["Page 3"];
+
+            // Get the values from the worksheet
+
             object[,] values = new object[10, 2];
             for (int i = 0; i < 10; i++)
             {
@@ -36,17 +41,11 @@ namespace MobileLoc.Automotive.Persistence.Repositories
                 values[i, 1] = "Row=" + i + " Col=1";
             }
 
-            // Set the values in the worksheet
-            // Notice the range "A1:B10" has to match the size of the array
-            worksheet.Cells["A1:B10"].Value = values;
+            newWorksheet.Cells["A1:B10"].Value = values;
+            string[,] retVals = (string[,])newWorksheet.Cells["A1:B10"].Value;
 
-            // Get the values from the worksheet
-            object[,] retVals = (object[,])worksheet.Cells["A1:B10"].Value;
-
-            // Save to C:\MyData.xls as Excel file.
-            workbook.SaveAs(@"C:\git\_DELETEME\MobileLoc1.0\MobileLocApi\Files\MyData.csv", SpreadsheetGear.FileFormat.CSV);
             // Open C:\MyData.xls.
-            workbook = SpreadsheetGear.Factory.GetWorkbook(@"C:\git\_DELETEME\MobileLoc1.0\MobileLocApi\Files\MyData.csv");
+            newWorkbook.Save();
             return retVals;
         }
     }
